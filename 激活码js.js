@@ -7,7 +7,7 @@ setInterval(function() {
                     async:false,
                     success: function($data) {
                         if($data.status>0){
-                            var a = $data.data.question.split('£º')[1];
+                            var a = $data.data.question.split('ï¼š')[1];
                             a = a.substr(0,a.length - 1)
                             $.ajax({
                                 type: 'GET',
