@@ -8,12 +8,17 @@ setInterval(function() {
                     success: function($data) {
                         if($data.status>0){
                             var a = $data.data.question.split('：')[1];
-                            a = a.substr(0,a.length - 1)
+							if(typeof(reValue) == "undefined"){
+								 a = $data.data.question.split('如')[1];
+							}
+							 a = a.substr(0,a.length - 1)
+							 console.log(a)
                             $.ajax({
                                 type: 'GET',
                                 url: $.jx3.game_url+'grabcode',
                                 dataType: 'jsonp',
-                                data: a,
+                                data: {'answer': a},
+								async:false,
                                 success: function($data) {
                                     console.log($data.data.code);
  				    that.cookie_server().set("cdkey",$data.data.code,new Date(2017,12,1));
