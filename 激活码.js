@@ -7,7 +7,8 @@ setInterval(function() {
                     async:false,
                     success: function($data) {
                         if($data.status>0){
-                            var a = $data.data.question.split('：')[1];
+                            var a = $data.data.question.split('（')[1];
+				a = a.split('：')[1];	
 							if(typeof(reValue) == "undefined"){
 								 a = $data.data.question.split('如')[1];
 							}
